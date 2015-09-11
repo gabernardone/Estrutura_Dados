@@ -11,7 +11,10 @@ public class Main {
 		//rand.run(7);
 		
 		
-		BoletimPersistente boletin = new BoletimPersistente();
-		boletin.run();
+		//BoletimPersistente boletin = new BoletimPersistente();
+		///boletin.run();
+		
+		PoupancaRecursiva Santander = new PoupancaRecursiva();
+		Santander.run();
 	}
 }
