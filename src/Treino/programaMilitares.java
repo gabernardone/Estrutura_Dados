@@ -12,12 +12,10 @@ public class programaMilitares {
 		Militar MilitarAsp = new Militar();
 		MilitarAsp.setNome("André");
 		
-		MilitarGen.setInferior(MilitarSar);
-		MilitarGen.setInferior(MilitarAsp);
 		
+		MilitarGen.setInferior(MilitarSar);		
 		MilitarSar.setSuperior(MilitarGen);
-		MilitarSar.setInferior(MilitarAsp);
-		
+		MilitarSar.setInferior(MilitarAsp);		
 		MilitarAsp.setSuperior(MilitarSar);
 		
 		System.out.println("1º Militar: "+ MilitarGen.getNome());
@@ -40,5 +38,8 @@ public class programaMilitares {
 		
 		
 		System.out.println("__ \nfim programa");
+		
+		
+		System.out.println(MilitarGen.getTotalSubordinados());
 	}
 }

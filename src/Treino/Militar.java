@@ -4,7 +4,7 @@ public class Militar {
 
 	private Militar Superior;
 	private Militar Inferior;
-	
+
 	private String Nome;
 
 	public String getNome() {
@@ -24,11 +24,11 @@ public class Militar {
 	}
 
 	public Militar getInferior() {
-		return Inferior;
+		return this.Inferior;
 	}
 
 	public void setInferior(Militar inferior) {
-		Inferior = inferior;
+		this.Inferior = inferior;
 	}
 
 	public boolean isGeneral() {
@@ -37,5 +37,10 @@ public class Militar {
 
 	public boolean isAspira() {
 		return this.Inferior == null ? true : false;
+	}
+
+	public int getTotalSubordinados() {
+		if(this.Inferior == null) { return 0; }
+		return 1 + Inferior.getTotalSubordinados();
 	}
 }
