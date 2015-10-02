@@ -39,9 +39,13 @@ public class Lista {
 
 	}
 
-	public void add(Nodo Topo) {
-		Topo.setNext(this.First);
-		this.setFirst(Topo);
+	/**
+	 * Adiciona um novo nó no inicio da lista
+	 * @param Topo = Nodo a ser adicionado
+	 */
+	public void add(Nodo Nodo) {
+		Nodo.setNext(this.First);
+		this.setFirst(Nodo);
 	}
 
 	public void remove() {
