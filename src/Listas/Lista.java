@@ -40,8 +40,22 @@ public class Lista {
 	}
 
 	/**
+	 * Verifica se a lista está vazia
+	 * 
+	 * @return bool true/fals
+	 */
+	public boolean isEmpty() {
+		if (this.First == null)
+			return true;
+		else
+			return false;
+	}
+
+	/**
 	 * Adiciona um novo nó no inicio da lista
-	 * @param Topo = Nodo a ser adicionado
+	 * 
+	 * @param Topo
+	 *            = Nodo a ser adicionado
 	 */
 	public void add(Nodo Nodo) {
 		Nodo.setNext(this.First);
@@ -50,6 +64,18 @@ public class Lista {
 
 	public void remove() {
 
+	}
+
+	/**
+	 * busca por um elemento na lista
+	 */
+	public Nodo search(String element) {
+		for (Nodo n = this.getFirst(); n != null; n = n.getNext()) {
+			if (n.getContent() == element) {
+				return n;
+			}
+		}
+		return null; /* nao achou o elemento */
 	}
 
 }
