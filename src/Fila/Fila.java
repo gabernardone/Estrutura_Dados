@@ -11,8 +11,28 @@ public class Fila {
 	
 	public void add(String content){
 		this.content[this.count] = content;
+		++this.count;
 	}
 	
+	public String peek(){
+		return this.content[0];
+	}
 	
+	public String remove(){
+		String temp = this.peek();
+		for (int i = 0; i < count-1 ; i++) {
+			content[i] = content[i+1];
+		}	
+		--this.count;
+		this.content[this.count] = null;
+		return temp;
+		
+	}
 	
+	public void clear(){
+		for (int i = 0; i < this.count; i++) {
+			content[i] = null;			
+		}
+		this.count = 0;
+	}
 }
