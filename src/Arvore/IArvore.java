@@ -1,13 +1,14 @@
 package Arvore;
 
 public interface IArvore {
-	Nodo criaSemFilhos(char c);
 
-	Nodo criaComFilhos(char c, Nodo esq, Nodo dir);
+	Nodo criaComFilhos(int c, Nodo esq, Nodo dir);
 
 	boolean vazia(Nodo n);
 
-	boolean pertence(char c, Nodo n);
+	boolean pertence(int c, Nodo n);
 
 	void imprime(Nodo n);
+
+	Nodo criaSemFilhos(int c);
 }
