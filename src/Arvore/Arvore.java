@@ -1,40 +1,42 @@
 package Arvore;
 
-public class Arvore implements IArvore {
-
-	private Nodo root;
-
-	@Override
-	public Nodo criaSemFilhos(int c) {
-		return new Nodo(c, null, null);
+/**
+ * Esta classe é uma implementação 
+ * de árvore binária cujos nós 
+ * recebem números inteiros.
+ * @author Yoshiriro
+ */
+public class Arvore {
+	
+	private No raiz;
+	
+	public boolean isVazia() {
+		return raiz == null;
 	}
-
-	@Override
-	public Nodo criaComFilhos(int c, Nodo esq, Nodo dir) {
-		return new Nodo(c, esq, dir);
-	}
-
-	@Override
-	public boolean vazia(Nodo n) {
-		return n == null;
-	}
-
-	@Override
-	public boolean pertence(int c, Nodo n) {
-		if (vazia(n))
-			return false;
-		else
-			return c == n.getContent() || pertence(c, n.getEsq())
-					|| pertence(c, n.getDir());
-	}
-
-	@Override
-	public void imprime(Nodo n) {
-		if (!vazia(n)) {
-			System.out.print(n.getContent() + " - ");
-			imprime(n.getEsq());
-			imprime(n.getDir());
+	
+	public void inserirNo(Integer conteudo) {
+		if (isVazia()) {
+			raiz = new No(conteudo);
+		}
+		// implementar a inserção nos "nós filhos"
+		// caso já exista o "nó raiz"
+		else {
+			raiz.inserirNo(conteudo);
 		}
 	}
 
+	
+	public boolean existeNo(Integer conteudo) {
+		// invocar apenas o método de busca na raiz
+		// portanto, é preciso criar um método
+		// de busca também na classe No
+		if (!isVazia()) { 
+			// só podemos fazer a busca 
+			// se a árvore não for vazia
+			return raiz.existeNo(conteudo);
+		}
+		// se a árvore for vazia, lógico que 
+		// o conteúdo não existe na árvore
+		return false;
+	}
 }

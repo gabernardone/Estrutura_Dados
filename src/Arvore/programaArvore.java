@@ -1,23 +1,20 @@
 package Arvore;
 
-public class programaArvore {
+public class ProgramaArvore {
 
-	static Arvore ArvoreBinaria = new Arvore();
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		Nodo raiz = ArvoreBinaria.criaComFilhos(1,
-				 ArvoreBinaria.criaSemFilhos(3),
-				 ArvoreBinaria.criaSemFilhos(5));
-				
-				 if(ArvoreBinaria.pertence(6, raiz))
-				 System.out.println("encontrou");
-				 else
-				 System.out.println("nao encontrou");
-				
-				 ArvoreBinaria.imprime(raiz);
-
+		Arvore arvoreX = new Arvore();
+		
+		System.out.println("É vazia? "+arvoreX.isVazia());
+		arvoreX.inserirNo(20);		
+		System.out.println("É vazia? "+arvoreX.isVazia());
+		arvoreX.inserirNo(25);
+		arvoreX.inserirNo(8);
+		arvoreX.inserirNo(10);
+		arvoreX.inserirNo(22);
+		arvoreX.inserirNo(6);
+		arvoreX.inserirNo(13);
+		arvoreX.inserirNo(30);
 	}
+
 }
