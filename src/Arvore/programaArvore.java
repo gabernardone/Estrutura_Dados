@@ -1,6 +1,6 @@
 package Arvore;
 
-public class ProgramaArvore {
+public class programaArvore {
 
 	public static void main(String[] args) {
 		Arvore arvoreX = new Arvore();
@@ -15,6 +15,8 @@ public class ProgramaArvore {
 		arvoreX.inserirNo(6);
 		arvoreX.inserirNo(13);
 		arvoreX.inserirNo(30);
+		System.out.println("Grau da Raiz: " + arvoreX.getRaiz().getGrau());
+		System.out.println("A altura da Árvore é: "+ arvoreX.getRaiz().getAltura());
 	}
 
 }

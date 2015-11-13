@@ -1,4 +1,4 @@
-package Arvore;
+package ArvoreClientes;
 
 /**
  * Classe que será usada como nó de árvore binária.
@@ -7,7 +7,7 @@ package Arvore;
  */
 public class No {
 
-	private Integer conteudo;
+	private Cliente conteudo;
 	private No esquerdo;
 	private No direito;
 	/// crie os gets e sets
@@ -16,11 +16,11 @@ public class No {
 	 * Construtor que recebe o conteúdo do No
 	 * @param conteudo
 	 */
-	public No(Integer conteudo) {
+	public No(Cliente conteudo) {
 		this.conteudo = conteudo;
 	}
 	
-	public void inserirNo(Integer novoConteudo) { /*
+	public void inserirNo(Cliente novoConteudo) { /*
 		 O conteúdo que chegou no argumento...
 		
 		 é MENOR que o conteúdo deste nó?
@@ -39,7 +39,7 @@ public class No {
 		 */
 		
 		// o novo conteúdo é menor que o deste nó
-		if (novoConteudo < this.conteudo) {
+		if (novoConteudo.getId() < this.conteudo.getId()) {
 			if (esquerdo!=null) { // o nó esquerdo já existe
 				esquerdo.inserirNo(novoConteudo);
 			} else { // o nó esquerdo ainda não existe
@@ -47,7 +47,7 @@ public class No {
 			}
 		}
 		// o novo conteúdo é maior que o deste nó
-		if (novoConteudo > this.conteudo) {
+		if (novoConteudo.getId() > this.conteudo.getId()) {
 			if (direito!=null) { // o nó direito já existe
 				direito.inserirNo(novoConteudo);
 			} else { // o nó direito ainda não existe
@@ -56,7 +56,7 @@ public class No {
 		}
 	}
 	
-	public boolean existeNo(Integer conteudo) {
+	public Cliente existeNo(Integer idPesquisa) {
 		// o conteúdo que chegou...
 		// é igual ao deste nó?
 		//  SIM -> retorne Verdadeiro
@@ -69,24 +69,24 @@ public class No {
 		//    SIM -> o nó direito é vazio?
 		//	    SIM -> retorne Falso
 		//      NÃO -> retorne o "existeNo()" nele	
-		if (conteudo == this.conteudo) {
-			return true;
+		if (idPesquisa == this.conteudo.getId()) {
+			return getConteudo();
 		}
-		if (conteudo < this.conteudo) {
+		if (idPesquisa < this.conteudo.getId()) {
 			if (esquerdo == null) {
-				return false;
+				return null;
 			} else {
-				return esquerdo.existeNo(conteudo);
+				return esquerdo.existeNo(idPesquisa);
 			}
 		}
-		if (conteudo > this.conteudo) {
+		if (idPesquisa > this.conteudo.getId()) {
 			if (direito == null) {
-				return false;
+				return null;
 			} else {
-				return direito.existeNo(conteudo);
+				return direito.existeNo(idPesquisa);
 			}
 		}
-		return false;
+		return null;
 	}
 	
 	
@@ -141,12 +141,10 @@ public class No {
 	}
 	
 	
-	
-	
-	public Integer getConteudo() {
+	public Cliente getConteudo() {
 		return conteudo;
 	}
-	public void setConteudo(Integer conteudo) {
+	public void setConteudo(Cliente conteudo) {
 		this.conteudo = conteudo;
 	}
 	public No getEsquerdo() {

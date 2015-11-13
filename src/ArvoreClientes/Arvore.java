@@ -1,4 +1,4 @@
-package Arvore;
+package ArvoreClientes;
 
 /**
  * Esta classe é uma implementação 
@@ -23,7 +23,7 @@ public class Arvore {
 		return raiz == null;
 	}
 	
-	public void inserirNo(Integer conteudo) {
+	public void inserirNo(Cliente conteudo) {
 		if (isVazia()) {
 			raiz = new No(conteudo);
 		}
@@ -33,9 +33,14 @@ public class Arvore {
 			raiz.inserirNo(conteudo);
 		}
 	}
+	
+	public Cliente procurarID(Integer id){
+	
+		return this.getRaiz().existeNo(id);
+	}
 
 	
-	public boolean existeNo(Integer conteudo) {
+	public Cliente existeNo(Integer conteudo) {
 		// invocar apenas o método de busca na raiz
 		// portanto, é preciso criar um método
 		// de busca também na classe No
@@ -46,6 +51,6 @@ public class Arvore {
 		}
 		// se a árvore for vazia, lógico que 
 		// o conteúdo não existe na árvore
-		return false;
+		return null;
 	}
 }
